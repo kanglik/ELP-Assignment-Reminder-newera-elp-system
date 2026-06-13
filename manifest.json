@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "ELP 作业提醒助手",
+  "version": "1.1.0",
+  "description": "自动追踪 New Era ELP 作业，支持智能看板与截止提醒。",
+  "permissions": ["storage", "alarms", "notifications"],
+  "host_permissions": ["https://elp.newera.edu.my/*"],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://elp.newera.edu.my/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+ 
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
+}
+
